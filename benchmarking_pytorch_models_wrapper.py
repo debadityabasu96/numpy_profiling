@@ -82,7 +82,12 @@ def model_runtime(model,input_vector):
             globals={'model':model,
                 'input_vector':input_vector})
 
-    latency = t2.timeit(2000)
+    latency = t2.timeit(20)
+    m2 = t2.blocked_autorange()
+    print(m2)
+    print(type(m2))
+    #if  in m2:
+    #    print("Warning Exists")
     return latency
 
 def main():
@@ -112,7 +117,7 @@ def main():
     print(latency)
     m0 = t0.blocked_autorange()
     m1 = t1.blocked_autorange()
-
+    
     print(m0)
     print(m1)
 if __name__ == "__main__":
